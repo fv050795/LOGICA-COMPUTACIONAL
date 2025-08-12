@@ -1,0 +1,2 @@
+# lmc
+Lógicas Computacionais 
