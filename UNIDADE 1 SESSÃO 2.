@@ -1,0 +1,65 @@
+
+# logica_computacional_unidade1_secao2.py
+
+print("--- Simulação de Lógica Booleana (Baseada na Unidade 1, Seção 2 do livro Lógica Computacional) ---")
+print("\nEste script demonstra a aplicação da Álgebra Booleana e das operações lógicas.")
+print("Ele simula o problema do circuito de votação, onde o projeto é aprovado se:")
+print("   - O Diretor Executivo (A) votar a favor (Verdadeiro)")
+print("   - E obtiver maioria (pelo menos um dos Vice-Diretores B ou C também votar a favor)")
+print("\nLógica da Aprovação do Projeto: A AND (B OR C)")
+print("\nValores: True (1) = Voto a favor | False (0) = Voto contra")
+
+# Cabeçalho da Tabela Verdade
+print("\n" + "="*40)
+print(f"{'A (Diretor)':<15} | {'B (Vice-Dir. Fin.)':<15} | {'C (Vice-Dir. Inst.)':<15} | {'Projeto Aprovado?':<20}")
+print("-" * 90)
+
+# Todas as combinações possíveis de votos (True/False ou 1/0)
+# Corresponde às 2^n combinações (2^3 = 8 combinações para 3 proposições)
+# Fonte: O conceito de 2^n combinações para a Tabela Verdade é discutido na Seção 1 da Unidade 4 [9].
+votos_a = [False, False, False, False, True, True, True, True]
+votos_b = [False, False, True, True, False, False, True, True]
+votos_c = [False, True, False, True, False, True, False, True]
+
+for i in range(8):
+    a = votos_a[i]
+    b = votos_b[i]
+    c = votos_c[i]
+
+    # Implementação da lógica do problema: A AND (B OR C)
+    # Fonte: A Álgebra Booleana e o uso de AND/OR/NOT são conceitos centrais do Período Booleano [1, 10, 11].
+    # As operações lógicas (conjunção, disjunção) são representadas por 'and' e 'or' em Python.
+    # O problema do circuito de votação é um exemplo de aplicação da lógica simbólica [2].
+    projeto_aprovado = a and (b or c)
+
+    # Exibição dos resultados em formato de tabela
+    print(f"{str(a):<15} | {str(b):<15} | {str(c):<15} | {str(projeto_aprovado):<20}")
+
+print("="*90)
+
+print("\n--- Conectivos Lógicos Fundamentais em Python ---")
+print("Python implementa diretamente os principais conectivos lógicos [12]:")
+
+# Negação (NOT)
+# Fonte: A negação (¬ ou ~) inverte o valor-verdade de uma proposição [13-15].
+print("\n1. Negação (NOT): Inverte o valor lógico.")
+print(f"NOT True  -> {not True}")
+print(f"NOT False -> {not False}")
+
+# Conjunção (AND)
+# Fonte: A conjunção (Ù) é verdadeira apenas se TODAS as proposições forem verdadeiras [13, 16].
+print("\n2. Conjunção (AND): Verdadeiro apenas se ambos forem True.")
+print(f"True AND True   -> {True and True}")
+print(f"True AND False  -> {True and False}")
+print(f"False AND True  -> {False and True}")
+print(f"False AND False -> {False and False}")
+
+# Disjunção (OR)
+# Fonte: A disjunção (Ú) é falsa apenas se AMBAS as proposições forem falsas [13, 17].
+print("\n3. Disjunção (OR): Falso apenas se ambos forem False.")
+print(f"True OR True   -> {True or True}")
+print(f"True OR False  -> {True or False}")
+print(f"False OR True  -> {False or True}")
+print(f"False OR False -> {False or False}")
+
+print("\nIsso demonstra como os princípios da Lógica Computacional são aplicados em programação.")
